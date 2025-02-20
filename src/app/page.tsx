@@ -1,101 +1,147 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useRef } from "react";
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiMysql,
+  SiMongodb,
+  SiPython,
+} from "react-icons/si";
+import { FaCommentDots, FaChalkboardTeacher } from "react-icons/fa";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { IoAnalytics } from "react-icons/io5";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const skillsRef = useRef<HTMLDivElement>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const scrollToSkills = () => {
+    skillsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  return (
+    <div className="main">
+      <section className="relative w-full h-screen flex items-center">
+        <div className="absolute inset-0 opacity-40">
+          <Image
+            src="/images/background.jpg"
+            alt="Background"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          ></Image>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Contenu */}
+        <div className="relative z-10 flex flex-col justify-center px-10 md:px-20 w-full md:w-1/2">
+          <h1 className="text-4xl md:text-6xl font-bold">Geoffrey Lusitano,</h1>
+          <h2 className="text-2xl py-5 md:text-4xl font-bold">
+            Développeur & Formateur
+          </h2>
+          <p className="text-lg py-5 text-gray-300 mt-4">
+            Je vous offre des solutions web personnalisées, combinant design
+            moderne et fonctionnalités sur-mesure.
+          </p>
+          <button
+            onClick={scrollToSkills}
+            className="mt-6 px-6 py-3 bg-primary w-fit hover:bg-primary-600 text-white rounded-md text-lg transition duration-300 flex items-center"
+          >
+            Découvrir mes compétences ↓
+          </button>
+        </div>
+      </section>
+
+      {/* Section avec la disposition en colonne */}
+      <section
+        id="skills"
+        ref={skillsRef}
+        className="flex items-center justify-center h-screen"
+      >
+        <div className="w-full min-h-screen flex-col  justify-center px-4 md:px-20 ">
+          <h2 className="text-2xl pl-12 pt-48 pb-20 md:text-4xl font-bold">
+            Mes compétences
+          </h2>
+          <div className=" flex items-center justify-center px-4">
+            {/* Première grande div */}
+            <div className="grid grid-cols-1 gap-4 p-2 w-full max-w-md">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiHtml5 className="h-full w-full p-4 text-orange-500" />
+                </div>
+                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiCss3 className="h-full w-full p-4 text-blue-500" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiJavascript className="h-full w-full p-4 text-yellow-500" />
+                </div>
+                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiTypescript className="h-full w-full p-4 text-blue-500" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="h-[250px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiReact className="h-full w-full p-4 text-cyan-500" />
+                </div>
+                <div className="h-[250px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiNextdotjs className="h-full w-full p-4 text-gray-100" />
+                </div>
+              </div>
+            </div>
+
+            {/* Seconde grande div */}
+            <div className="grid grid-cols-1 gap-4 p-2 w-full max-w-md">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiNodedotjs className="h-full w-full p-4 text-green-500" />
+                </div>
+                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiPython className="h-full w-full p-4 text-yellow-300" />
+                </div>
+              </div>
+              <div className="h-[225px] bg-gray-800 rounded-lg flex items-center justify-center">
+                Mes Compétences
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="h-[200px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiMysql className="h-full w-full p-4 text-blue-500" />
+                </div>
+                <div className="h-[200px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <SiMongodb className="h-full w-full p-4 text-green-500" />
+                </div>
+              </div>
+            </div>
+
+            {/* Troisième grande div */}
+            <div className="grid grid-cols-1 gap-4 p-2 w-full max-w-md">
+              <div className="h-[184px] bg-gray-800 rounded-lg flex items-center justify-center">
+                <FaChalkboardTeacher className="h-full w-full p-4 text-purple-500" />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="h-[125px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <FaCommentDots className="h-full w-full p-4 text-gray-400" />
+                </div>
+                <div className="h-[125px] bg-gray-800 rounded-lg flex items-center justify-center">
+                  <RiCustomerService2Fill className="h-full w-full p-4 text-gray-400" />
+                </div>
+              </div>
+              <div className="h-[125px] bg-gray-800 rounded-lg flex items-center justify-center">
+                <IoAnalytics className="h-full w-full p-4 text-blue-400" />
+              </div>
+              <div className="h-[150px] bg-gray-800 rounded-lg flex items-center justify-center">
+                Adaptabilité
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

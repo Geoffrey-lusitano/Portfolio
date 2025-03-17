@@ -2,19 +2,40 @@
 
 import { Logo } from "@/design-system/logo/logo";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Détection du scroll pour ajouter le flou
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNav = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full h-20  z-50">
-      <div className="flex  justify-between items-center h-full w-full px-6 md:px-16">
+    <nav
+      className={`fixed top-0 left-0 w-full h-20 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-gray-900/50 backdrop-blur-lg shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="flex justify-between items-center h-full w-full px-6 md:px-16">
         {/* Logo à gauche */}
         <Link href={"/"} className="text-foreground">
           <Logo size="small" />

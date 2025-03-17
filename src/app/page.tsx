@@ -16,7 +16,7 @@ import {
   SiPython,
 } from "react-icons/si";
 import { FaCommentDots, FaChalkboardTeacher } from "react-icons/fa";
-import { RiCustomerService2Fill } from "react-icons/ri";
+import { RiCustomerService2Fill, RiTailwindCssFill } from "react-icons/ri";
 import { IoAnalytics } from "react-icons/io5";
 
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
           ></Image>
         </div>
 
-        {/* Contenu */}
+        {/* Hero */}
         <div className="relative z-10 flex flex-col justify-center px-10 md:px-20 w-full md:w-1/2">
           <h1 className="text-4xl md:text-6xl font-bold">Geoffrey Lusitano,</h1>
           <h2 className="text-2xl py-5 md:text-4xl font-bold">
@@ -57,41 +57,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section avec la disposition en colonne */}
+      {/* Section Bento */}
       <section
         id="skills"
         ref={skillsRef}
         className="flex items-center justify-center h-screen"
       >
-        <div className="w-full min-h-screen flex-col  justify-center px-4 md:px-20 ">
-          <h2 className="text-2xl pl-12 pt-48 pb-20 md:text-4xl font-bold">
+        <div className="w-full min-h-screen flex-col justify-center px-4 md:px-20">
+          <h2 className="text-2xl pl-12 pt-40 pb-10 md:text-4xl font-bold">
             Mes compétences
           </h2>
-          <div className=" flex items-center justify-center px-4">
+          <div className="flex items-center justify-center px-4">
             {/* Première grande div */}
             <div className="grid grid-cols-1 gap-4 p-2 w-full max-w-md">
               <div className="grid grid-cols-2 gap-4">
-                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiHtml5 className="h-full w-full p-4 text-orange-500" />
+                <div className="h-[175px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">HTML5</p>
+                  <SiHtml5 className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-orange-500" />
                 </div>
-                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiCss3 className="h-full w-full p-4 text-blue-500" />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiJavascript className="h-full w-full p-4 text-yellow-500" />
-                </div>
-                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiTypescript className="h-full w-full p-4 text-blue-500" />
+                <div className="h-[175px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">CSS3</p>
+                  <SiCss3 className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-blue-500" />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="h-[250px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiReact className="h-full w-full p-4 text-cyan-500" />
+                <div className="h-[175px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">JavaScript</p>
+                  <SiJavascript className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-yellow-500" />
                 </div>
-                <div className="h-[250px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiNextdotjs className="h-full w-full p-4 text-gray-100" />
+                <div className="h-[175px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">TypeScript</p>
+                  <SiTypescript className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-blue-400" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="h-[250px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">React.js</p>
+                  <SiReact className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-cyan-500" />
+                </div>
+                <div className="h-[250px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">Next.js</p>
+                  <SiNextdotjs className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-gray-100" />
                 </div>
               </div>
             </div>
@@ -99,49 +105,66 @@ export default function Home() {
             {/* Seconde grande div */}
             <div className="grid grid-cols-1 gap-4 p-2 w-full max-w-md">
               <div className="grid grid-cols-2 gap-4">
-                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiNodedotjs className="h-full w-full p-4 text-green-500" />
+                <div className="h-[175px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">Node.js</p>
+                  <SiNodedotjs className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-green-500" />
                 </div>
-                <div className="h-[175px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiPython className="h-full w-full p-4 text-yellow-300" />
+                <div className="h-[175px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">Python</p>
+                  <SiPython className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-yellow-300" />
                 </div>
               </div>
-              <div className="h-[225px] bg-gray-800 rounded-lg flex items-center justify-center">
-                Mes Compétences
+              <div className="h-[225px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                <p className="text-sm font-semibold mb-2">
+                  Grâce à ces compétences, je développe des applications web
+                  adaptées à vos besoins et partage mes connaissances à travers
+                  la formation. Mon approche repose sur la rigueur technique, la
+                  collaboration et l’adaptabilité pour garantir la réussite de
+                  chaque projet.
+                </p>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="h-[200px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiMysql className="h-full w-full p-4 text-blue-500" />
+                <div className="h-[200px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">MySQL</p>
+                  <SiMysql className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-blue-600" />
                 </div>
-                <div className="h-[200px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <SiMongodb className="h-full w-full p-4 text-green-500" />
+                <div className="h-[200px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">MongoDB</p>
+                  <SiMongodb className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-green-400" />
                 </div>
               </div>
             </div>
 
             {/* Troisième grande div */}
             <div className="grid grid-cols-1 gap-4 p-2 w-full max-w-md">
-              <div className="h-[184px] bg-gray-800 rounded-lg flex items-center justify-center">
-                <FaChalkboardTeacher className="h-full w-full p-4 text-purple-500" />
+              <div className="h-[184px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                <p className="text-sm font-semibold mb-2">Pédagogie</p>
+                <FaChalkboardTeacher className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-purple-500" />
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="h-[125px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <FaCommentDots className="h-full w-full p-4 text-gray-400" />
+                <div className="h-[125px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">Communication</p>
+                  <FaCommentDots className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-cyan-500" />
                 </div>
-                <div className="h-[125px] bg-gray-800 rounded-lg flex items-center justify-center">
-                  <RiCustomerService2Fill className="h-full w-full p-4 text-gray-400" />
+                <div className="h-[125px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                  <p className="text-sm font-semibold mb-2">Relation Client</p>
+                  <RiCustomerService2Fill className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-orange-500" />
                 </div>
               </div>
-              <div className="h-[125px] bg-gray-800 rounded-lg flex items-center justify-center">
-                <IoAnalytics className="h-full w-full p-4 text-blue-400" />
+              <div className="h-[125px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                <p className="text-sm font-semibold mb-2">SEO</p>
+                <IoAnalytics className="h-24 w-24 p-2 text-current transition-colors duration-300 hover:text-yellow-400" />
               </div>
-              <div className="h-[150px] bg-gray-800 rounded-lg flex items-center justify-center">
-                Adaptabilité
+              <div className="h-[150px] bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                <p className="text-sm font-semibold mb-2">Tailwind CSS</p>
+                <RiTailwindCssFill className="h-full w-full p-4 text-current transition-colors duration-300 hover:text-blue-500" />
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Section Bento */}
     </div>
   );
 }
